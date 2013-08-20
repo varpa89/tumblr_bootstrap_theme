@@ -29,13 +29,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">{Title}</a>
+          <a class="navbar-brand" href="/home">{Title}</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -43,7 +43,7 @@
     <div class="bs-header">
       <div class="container">
       {block:Description}
-			<h1>{Description}</h1>
+    		<h1>{Description}</h1>
         {/block:Description}
 		<html>
     <head>
@@ -198,6 +198,24 @@
                         {/block:Caption}
                     </li>
                 {/block:Audio}
+				
+				{block:Date}
+                        <a href="{Permalink}">
+                            <div class="footer for_permalink">
+                                <div class="date">
+                                    {block:Reblog}
+                                        {lang:Reblogged TimeAgo from ReblogParentName} {block:RebloggedFromReblog}(<span style="text-transform:lowercase;">{lang:Originally from ReblogRootName}</span>){/block:RebloggedFromReblog}
+                                    {/block:Reblog}
+                                    
+                                    {block:NotReblog}
+                                        {lang:Posted TimeAgo from source}
+                                    {/block:NotReblog}
+                                </div>
+                                <div class="notes">{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount} {block:IfDisqusShortname}{block:NoteCount}&bull;{/block:NoteCount} <a href="{Permalink}#disqus_thread">{lang:View comments}</a>{/block:IfDisqusShortname}</div>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                    {/block:Date}
             {/block:Posts}
         </ol>
       
@@ -227,5 +245,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+    });
+    </script>
   </body>
 </html>
