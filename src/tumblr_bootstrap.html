@@ -1,54 +1,7 @@
 <html>
     <head>
         <title>{Title}</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-        <style>
-            body {
-  padding-top: 60px;
-}
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
-}
-        </style
-            <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src=".//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/home">{Title}</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contacts">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    <div class="bs-header">
-      <div class="container">
-      {block:Description}
-    		<h1>{Description}</h1>
-        {/block:Description}
-		<html>
-    <head>
-        <title>{Title}</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <style>
             body {
 			  padding-top: 60px;
@@ -59,12 +12,12 @@
 			  }
 			}
         </style
-            <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src=".//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src=".//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		  <script src="../../assets/js/respond.min.js"></script>
+		<![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     </head>
 <body>
@@ -80,23 +33,21 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <div class="bs-header">
-      <div class="container">
-
-		<div id="avatar"><a href="/"><img src="{PortraitURL-128}" /></a></div>
-        
-        </div>
-    </div>
-    <div class="container">
-        <ol id="posts">
-            {block:Posts}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div id="avatar"><a href="/"><img src="{PortraitURL-128}" /></a></div>
+                <div id="description"><h2>{Description}</h2></div>
+			</div>
+			<div class="col-md-6">
+			{block:Posts}
                 {block:Text}
                     <li class="post text">
                         {block:Title}
@@ -217,38 +168,42 @@
                         </a>
                     {/block:Date}
             {/block:Posts}
-        </ol>
-      
-	</div>
+			{block:Pagination}
+                <div id="navigation" {block:IfEnableJumpPagination}class="jump_pagination"{/block:IfEnableJumpPagination}>
+                    {block:PreviousPage}<a href="{PreviousPage}">&larr; {lang:Previous}</a>{/block:PreviousPage}
+                    
 
+                    
+                    {block:NextPage}<a href="{NextPage}">{lang:Next page} &rarr;</a>{/block:NextPage}
+                </div>
+            {/block:Pagination}
+			
+			<ul class="pager">
+			  {block:PreviousPage}<li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous}</a></li>{/block:PreviousPage}
+			  
+			        {block:IfEnableJumpPagination}
+                        {block:JumpPagination length="1"}
+                            {block:CurrentPage}
+                                <span class="current_page">{PageNumber}</span>
+                            {/block:CurrentPage}
+                            
+                            {block:JumpPage}
+                                <a class="jump_page" href="{URL}">{PageNumber}</a>
+                            {/block:JumpPage}
+                            
+                        {/block:JumpPagination}
+                    {/block:IfEnableJumpPagination}
+			  {block:NextPage}<li class="next"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>{/block:NextPage}
+			</ul>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  </body>
-</html>
-        
-        </div>
+		</div>
+		</div>
     </div>
-    <div class="container">
-
-      
-	</div>
-
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        
-    });
-    </script>
+    <script src="http://http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>
