@@ -48,14 +48,13 @@
 			</div>
 			<div class="col-md-6">
 			{block:Posts}
-                {block:Text}
-                    <li class="post text">
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
 
-                        {Body}
-                    </li>
+
+                {block:Text}
+				<div class="page-header">
+					<h2 id="type"><a href="{Permalink}">{Title}</a></h2>
+				</div>
+					{Body}
                 {/block:Text}
 
                 {block:Photo}
@@ -169,32 +168,26 @@
                     {/block:Date}
             {/block:Posts}
 			{block:Pagination}
-                <div id="navigation" {block:IfEnableJumpPagination}class="jump_pagination"{/block:IfEnableJumpPagination}>
-                    {block:PreviousPage}<a href="{PreviousPage}">&larr; {lang:Previous}</a>{/block:PreviousPage}
-                    
-
-                    
-                    {block:NextPage}<a href="{NextPage}">{lang:Next page} &rarr;</a>{/block:NextPage}
-                </div>
+				<ul class="pager">
+				  {block:PreviousPage}<li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous}</a></li>{/block:PreviousPage}
+				  
+						{block:IfEnableJumpPagination}
+							{block:JumpPagination length="1"}
+								{block:CurrentPage}
+									<span class="current_page">{PageNumber}</span>
+								{/block:CurrentPage}
+								
+								{block:JumpPage}
+									<a class="jump_page" href="{URL}">{PageNumber}</a>
+								{/block:JumpPage}
+								
+							{/block:JumpPagination}
+						{/block:IfEnableJumpPagination}
+				  {block:NextPage}<li class="next"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>{/block:NextPage}
+				</ul>
             {/block:Pagination}
 			
-			<ul class="pager">
-			  {block:PreviousPage}<li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous}</a></li>{/block:PreviousPage}
-			  
-			        {block:IfEnableJumpPagination}
-                        {block:JumpPagination length="1"}
-                            {block:CurrentPage}
-                                <span class="current_page">{PageNumber}</span>
-                            {/block:CurrentPage}
-                            
-                            {block:JumpPage}
-                                <a class="jump_page" href="{URL}">{PageNumber}</a>
-                            {/block:JumpPage}
-                            
-                        {/block:JumpPagination}
-                    {/block:IfEnableJumpPagination}
-			  {block:NextPage}<li class="next"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>{/block:NextPage}
-			</ul>
+
 
 		</div>
 		</div>
