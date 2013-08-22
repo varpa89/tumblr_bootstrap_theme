@@ -3,6 +3,7 @@
     <head>
         <title>{Title}</title>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdn.nishadil.com/js/google-code-prettify/prettify.css">
         <style>
             .container {
 			  padding-top: 60px;
@@ -15,7 +16,7 @@
 			.post-body{
 				text-align: justify;
 			}
-        </style
+        </style>
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		  <script src=".//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,7 +28,7 @@
     </head>
 <body>
 	<div class="container">
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<header class="navbar navbar-inverse navbar-fixed-top">
       
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -44,8 +45,9 @@
             <li><a href="/contacts">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
-
+      </header>
+	  </div>
+<div class="container">
 		<div class="row">
 			<div class=" col-md-4">
 				<div id="avatar"><a href="/"><img src="{PortraitURL-128}" /></a></div>
@@ -204,12 +206,18 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdn.bitbucket.org/shekharpro/google_code_prettify/downloads/prettify.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script>
 		$( document ).ready(function(){
 			
 			$('.post-body img').addClass('img-responsive');
 		}); 
+		!function ($) {
+		  $(function(){
+		  window.prettyPrint && prettyPrint()   
+		  })
+		}(window.jQuery);
 	</script>
   </body>
 </html>
