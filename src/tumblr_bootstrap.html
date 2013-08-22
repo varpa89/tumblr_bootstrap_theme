@@ -44,6 +44,12 @@
             <li><a href="/about">About</a></li>
             <li><a href="/contacts">Contact</a></li>
           </ul>
+		  <form class="navbar-form navbar-right" action="/search" method="get">
+            <div class="form-group">
+              <input type="text" placeholder="Search" name="q" class="form-control" value="{SearchQuery}">
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
+          </form>
         </div><!--/.nav-collapse -->
       </div>
 
@@ -194,6 +200,13 @@
 				  {block:NextPage}<li class="next"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>{/block:NextPage}
 				</ul>
             {/block:Pagination}
+			
+			{block:SearchPage}
+				
+			{/block:SearchPage}
+			{block:NoSearchResults}
+				No
+			{/block:NoSearchResults}
 			
 
 
